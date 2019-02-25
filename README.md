@@ -1,27 +1,37 @@
-# Try2
+# front-end
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+Pull code
 
-## Development server
+npm install
+npm start
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+FRONT-END ENDPOINTS::
+http://localhost:4200
+http://localhost:4200/login
+http://localhost:4200/registration
+http://localhost:4200/about   ---> In progress
 
-## Code scaffolding
+Upon starting of app, you can create new accout on registration route, or via postman by posting 'fullname', 'email' and 'password' fields on http://localhost:3030/users.
+You have to register to receive token for authorizations on other routes. 
+Take token and use it to post other testing data.  (You can take token by posting 'email' and 'password' on http://localhost:3030/authentication)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+JSON files for testing data you can find in "front-end/src/assets/jsons"
+Coppy contents of those files and post them on corresponding api routes
 
-## Build
+genres > http://localhost:3030/genres
+actors > http://localhost:3030/actors
+movies > http://localhost:3030/movies
+shows  > http://localhost:3030/shows
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Now go on http://localhost:4200/login, login via created account and test app.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+API(BACK-END) ENDPOINTS:
+http://localhost:3030/authentication
+http://localhost:3030/genres
+http://localhost:3030/actors
+http://localhost:3030/movies
+http://localhost:3030/shows
+http://localhost:3030/ratings
+http://localhost:3030/users
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

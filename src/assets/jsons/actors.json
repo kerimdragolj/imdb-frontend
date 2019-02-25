@@ -1,0 +1,197 @@
+[
+    {
+        "fullname": "Morgan Freeman",
+        "age": 80,
+        "sex": "male"
+    },
+    {
+        "fullname": "Leonardo di Caprio",
+        "age": 45,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Margot Robbie",
+        "age": 35,
+        "sex": "Female"
+    },
+    {
+        "fullname": "Scarlet Johanson",
+        "age": 33,
+        "sex": "Female"
+    },
+    {
+        "fullname": "Sean Bean",
+        "age": 65,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Jim Carrey",
+        "age": 46,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Rami Melek",
+        "age": 27,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Jennifer Aniston",
+        "age": 58,
+        "sex": "Female"
+    },
+    {
+        "fullname": "Alexandra Daddario",
+        "age": 26,
+        "sex": "Female"
+    },
+    {
+        "fullname": "Emilia Clarke",
+        "age": 34,
+        "sex": "Female"
+    },
+    {
+        "fullname": "Bradley Cooper",
+        "age": 44,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Will Smith",
+        "age": 53,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Daniel Radcliffe",
+        "age": 33,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Priyanka Chopra",
+        "age": 32,
+        "sex": "Female"
+    },
+    {
+        "fullname": "Emma Stone",
+        "age": 31,
+        "sex": "Female"
+    },
+    {
+        "fullname": "Viggo Mortensen ",
+        "age": 52,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Jake Gyllenhaal",
+        "age": 37,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Jennifer Lawrence",
+        "age": 29,
+        "sex": "Female"
+    },
+    {
+        "fullname": "Cristian Bale",
+        "age": 44,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Cris Pratt",
+        "age": 32,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Rachel McAdams",
+        "age": 30,
+        "sex": "Female"
+    },
+    {
+        "fullname": "James McAvoy",
+        "age": 30,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Tom Cruise",
+        "age": 42,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Liam Neeson",
+        "age": 62,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Rosamund Pike",
+        "age": 34,
+        "sex": "Female"
+    },
+    {
+        "fullname": "Emily Blunt",
+        "age": 37,
+        "sex": "Female"
+    },
+    {
+        "fullname": "Brad Pitt",
+        "age": 51,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Chris Hemsworth",
+        "age": 34,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Travis Fimmel",
+        "age": 33,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Sam Elliott",
+        "age": 72,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Keanu Reeves",
+        "age": 39,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Christina Hendricks",
+        "age": 38,
+        "sex": "Female"
+    },
+    {
+        "fullname": "Clint Eastwood",
+        "age": 75,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Johnny Depp",
+        "age": 41,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Anne Hathaway",
+        "age": 37,
+        "sex": "Female"
+    },
+    {
+        "fullname": "Matthew McConaughey",
+        "age": 46,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Tom Hanks",
+        "age": 51,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Sylvester Stallone",
+        "age": 68,
+        "sex": "Male"
+    },
+    {
+        "fullname": "Charlize Theron",
+        "age": 40,
+        "sex": "Female"
+    }
+]

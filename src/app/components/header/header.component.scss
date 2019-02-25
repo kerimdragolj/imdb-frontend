@@ -1,0 +1,103 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+#header {
+  width: 100vw;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 5px;
+  background-color: #efefef;
+  box-shadow: 0px 0px 20px 1px silver;
+
+  #logo {
+    background-image: url('../../../favicon.ico');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: inline-block;
+    top: -5px;
+    left: 0;
+    height: 100%;
+    width: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  #title {
+    position: relative;
+    left: 10px;
+    top: -10px;
+    display: inline-block;
+    font-size: 41px;
+    cursor: pointer;
+  }
+
+  .pull-right {
+    margin-right: 10%;
+    margin-top: 5px;
+  }
+
+  .user {
+    margin-top: 3px;
+    font-size: 12px;
+
+    #right,
+    #middle,
+    #left {
+      display: inline-block;
+    }
+
+    #avatar {
+      width: 35px;
+      height: 35px;
+      margin-top: -20px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .fa-sign-out {
+      font-size: 24px;
+      margin-left: 10px;
+      padding: 2px 2px 2px 5px;
+      border: 2px solid #787878;
+      border-radius: 50%;
+      color: #787878;
+      position: relative;
+      top: -6px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .pull-right {
+    margin-right: 6% !important;
+  }
+
+  #logo {
+    top: 0px !important;
+  }
+
+  #title {
+    left: 0 !important;
+    font-size: 31px !important;
+  }
+
+  #middle {
+    display: none !important;
+  }
+
+  .fa-sign-out {
+    top: 0 !important;
+    margin-left: 5px !important;
+  }
+
+  #avatar {
+    margin-top: -15px !important;
+    margin-right: 0 !important;
+  }
+}

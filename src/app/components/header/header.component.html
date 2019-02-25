@@ -1,0 +1,21 @@
+<div id="header">
+  <div id="logo" [routerLink]="['/']"></div>
+  <div id="title" [routerLink]="['/']">IMDb</div>
+
+  <div class="pull-right login-registration" *ngIf="!isLogged">
+    <a [routerLink]="['/login']"> Login </a> |
+    <a [routerLink]="['/register']"> Registration </a>
+  </div>
+  <div class="pull-right user" *ngIf="!!isLogged">
+    <div id="left">
+      <img id="avatar" src="{{../../../../../assets/avatar.png" *ngIf="user">
+    </div>
+    <div id="middle">
+        <span>{{user ? user.email : ''}}</span> <br>
+        <span>{{user ? user.fullname : ''}}</span>
+    </div>
+    <div id="right">
+      <span class="fa fa-sign-out" (click)="logout()" [routerLink]="['/login']"></span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.registration-card {
+  margin: 12% auto 0;
+  h2 {
+    margin-bottom: 25px;
+  }
+  span {
+    font-size: 14px;
+    color: #727272;
+    margin-top: 8px;
+    margin-right: 10px;
+  }
+}

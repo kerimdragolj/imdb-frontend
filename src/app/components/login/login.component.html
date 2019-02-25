@@ -1,0 +1,18 @@
+<div class="container">
+  <form (submit)="login()" ngNativeValidate>
+    <div class="login-card col col-lg-6 col-md-8 col-sm-9 col-xs-10">
+      <h2> Login: </h2>
+      <div class="form-group">
+        <label>Email: </label>
+        <input class="form-control" type="email" [(ngModel)]="email" name="email">
+      </div>
+      <div class="form-group">
+        <label>Password: </label>
+        <input class="form-control" type="password" [(ngModel)]="password" name="password">
+      </div>
+      <button class="btn btn-primary" type="submit">Sign in</button>
+      <button class="btn btn-light pull-right" [routerLink]="['/register']" type="reset">Sign up</button>
+      <span class="pull-right"> Not registered yet?</span>
+    </div>
+  </form>
+</div>
