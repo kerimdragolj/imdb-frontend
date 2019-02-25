@@ -6,6 +6,10 @@ npm install
 
 npm start
 
+For both web and api... + setup database
+DATABASE: PostgreSQL - name: imdb, owner: postgres
+
+
 FRONT-END ENDPOINTS::
 
 http://localhost:4200
