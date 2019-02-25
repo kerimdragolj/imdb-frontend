@@ -262,10 +262,16 @@ export class HomeComponent implements OnInit {
 
   pushNewData(res) {
     this.total = res.total;
+    let title = '';
     res.data.forEach(el => {
+      if(this.currTab == 'movies') {
+        title = el.title;
+      } else {
+        title = el.name;
+      }
       this.data.push({
         id: el.id,
-        title: el.title,
+        title: title,
         poster: el.poster_path,
         overview: el.overview,
         rating: el.vote_average,
