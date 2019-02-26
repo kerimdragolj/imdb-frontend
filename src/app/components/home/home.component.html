@@ -15,18 +15,14 @@
         name="term">
       <span class="fa fa-search" (click)="search.focus();"></span>
     </div>
-    <div class="tab-content grid-view" id="nav-tabContent" *ngIf="currLayout == 'grid'">
-      <div class="tab-pane" *ngIf="currTab == 'movies'">
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane grid-view" *ngIf="currLayout == 'grid'">
         <div class="row">
-          <div class="col col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12" *ngFor="let object of data; let i = index">
-            <div class="movie-card-border">
+          <div class="col col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12" *ngFor="let object of data; let i = index">
+            <div class="movie-card-cover" [style.background]="'url(https://image.tmdb.org/t/p/w500' + object.poster + ')'">
+              <div class="big-star-wrapper"><i class="fa fa-star big-star"><span class="total-rating">{{object.rating}}</span></i></div>
               <div class="movie-card">
-                <div class="image" [style.background]="'url(https://image.tmdb.org/t/p/w500' + object.poster + ')'">
-                  <div class="big-star-wrapper"><i class="fa fa-star big-star"><span class="total-rating">{{object.rating}}</span></i></div>
-                </div>
-                <div>
-                  <h5 class="title">{{object.title | truncate: 17 }}</h5>
-                </div>
+                <h5 class="title">{{object.title | truncate: 50 }}</h5>
                 <div class="stars" (mouseleave)="object.userRating = object.prevUserRating">
                   <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 1, 'fa-star': object.userRating >= 1}"
                     (mouseover)="object.userRating = 1" (click)="submitRating(i, 1)"></span>
@@ -54,92 +50,13 @@
           </div>
         </div>
       </div>
-      <div class="tab-pane" *ngIf="currTab == 'shows'">
-        <div class="row">
-          <div class="col col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12" *ngFor="let object of data; let i = index">
-            <div class="movie-card-border">
-              <div class="movie-card">
-                <div class="image" [style.background]="'url(https://image.tmdb.org/t/p/w500' + object.poster + ')'">
-                  <div class="big-star-wrapper"><i class="fa fa-star big-star"><span class="total-rating">{{object.rating}}</span></i></div>
-                </div>
-                <div>
-                  <h5 class="title">{{object.title | truncate: 17 }}</h5>
-                </div>
-                <div class="stars" (mouseleave)="object.userRating = object.prevUserRating">
-                  <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 1, 'fa-star': object.userRating >= 1}"
-                    (mouseover)="object.userRating = 1" (click)="submitRating(i, 1)"></span>
-                  <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 2, 'fa-star': object.userRating >= 2}"
-                    (mouseover)="object.userRating = 2" (click)="submitRating(i, 2)"></span>
-                  <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 3, 'fa-star': object.userRating >= 3}"
-                    (mouseover)="object.userRating = 3" (click)="submitRating(i, 3)"></span>
-                  <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 4, 'fa-star': object.userRating >= 4}"
-                    (mouseover)="object.userRating = 4" (click)="submitRating(i, 4)"></span>
-                  <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 5, 'fa-star': object.userRating >= 5}"
-                    (mouseover)="object.userRating = 5" (click)="submitRating(i, 5)"></span>
-                  <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 6, 'fa-star': object.userRating >= 6}"
-                    (mouseover)="object.userRating = 6" (click)="submitRating(i, 6)"></span>
-                  <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 7, 'fa-star': object.userRating >= 7}"
-                    (mouseover)="object.userRating = 7" (click)="submitRating(i, 7)"></span>
-                  <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 8, 'fa-star': object.userRating >= 8}"
-                    (mouseover)="object.userRating = 8" (click)="submitRating(i, 8)"></span>
-                  <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 9, 'fa-star': object.userRating >= 9}"
-                    (mouseover)="object.userRating = 9" (click)="submitRating(i, 9)"></span>
-                  <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 10, 'fa-star': object.userRating >= 10}"
-                    (mouseover)="object.userRating = 10" (click)="submitRating(i, 10)"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row load-more" (click)="loadMore()" *ngIf="total > data.length">
-        LOAD MORE..
-      </div>
-      <div class="row no-results" *ngIf="data.length == 0">
-        No results...
-      </div>
-    </div>
-    <div class="tab-content list-view" id="nav-tabContent" *ngIf="currLayout == 'list'">
-      <div class="tab-pane" *ngIf="currTab == 'movies'">
+      <div class="tab-pane list-view" *ngIf="currLayout == 'list'">
         <div class="row movie" *ngFor="let object of data; let i = index">
           <div class="left">
             <div class="image" [style.background]="'url(https://image.tmdb.org/t/p/w500' + object.poster + ')'"></div>
           </div>
           <div class="right">
             <h5 class="title">{{ object.title | truncate: 30 }}</h5>
-            <div class="big-star-wrapper"><i class="fa fa-star big-star"><span class="total-rating">{{object.rating}}</span></i></div>
-            <div class="stars" (mouseleave)="object.userRating = object.prevUserRating">
-              <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 1, 'fa-star': object.userRating >= 1}"
-                (mouseover)="object.userRating = 1" (click)="submitRating(i, 1)"></span>
-              <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 2, 'fa-star': object.userRating >= 2}"
-                (mouseover)="object.userRating = 2" (click)="submitRating(i, 2)"></span>
-              <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 3, 'fa-star': object.userRating >= 3}"
-                (mouseover)="object.userRating = 3" (click)="submitRating(i, 3)"></span>
-              <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 4, 'fa-star': object.userRating >= 4}"
-                (mouseover)="object.userRating = 4" (click)="submitRating(i, 4)"></span>
-              <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 5, 'fa-star': object.userRating >= 5}"
-                (mouseover)="object.userRating = 5" (click)="submitRating(i, 5)"></span>
-              <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 6, 'fa-star': object.userRating >= 6}"
-                (mouseover)="object.userRating = 6" (click)="submitRating(i, 6)"></span>
-              <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 7, 'fa-star': object.userRating >= 7}"
-                (mouseover)="object.userRating = 7" (click)="submitRating(i, 7)"></span>
-              <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 8, 'fa-star': object.userRating >= 8}"
-                (mouseover)="object.userRating = 8" (click)="submitRating(i, 8)"></span>
-              <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 9, 'fa-star': object.userRating >= 9}"
-                (mouseover)="object.userRating = 9" (click)="submitRating(i, 9)"></span>
-              <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 10, 'fa-star': object.userRating >= 10}"
-                (mouseover)="object.userRating = 10" (click)="submitRating(i, 10)"></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane list-view" id="nav-tabContent" *ngIf="currTab == 'shows'">
-        <div class="row show" *ngFor="let object of data; let i = index">
-          <div class="left">
-            <div class="image" [style.background]="'url(https://image.tmdb.org/t/p/w500' + object.poster + ')'"></div>
-          </div>
-          <div class="right">
-            <h5 class="title">{{object.title | truncate: 17 }}</h5>
             <div class="big-star-wrapper"><i class="fa fa-star big-star"><span class="total-rating">{{object.rating}}</span></i></div>
             <div class="stars" (mouseleave)="object.userRating = object.prevUserRating">
               <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 1, 'fa-star': object.userRating >= 1}"

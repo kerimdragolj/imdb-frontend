@@ -1,6 +1,13 @@
 @mixin linearGradient($direction, $color1, $color2) {
-    background: linear-gradient($direction, $color1, $color2);
-    background: -moz-linear-gradient($direction, $color1, $color2);
-    background: -o-linear-gradient($direction, $color1, $color2);
-    background: -webkit-linear-gradient($direction, $color1, $color2);
+  background: linear-gradient($direction, $color1, $color2);
+  background: -moz-linear-gradient($direction, $color1, $color2);
+  background: -o-linear-gradient($direction, $color1, $color2);
+  background: -webkit-linear-gradient($direction, $color1, $color2);
+}
+
+@mixin backgroundImage($url) {
+  background: url($url);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

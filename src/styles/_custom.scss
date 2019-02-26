@@ -1,16 +1,18 @@
 body {
-  background-color: #ECECEC;
   width: 100vw;
-  height: 97vh;
+  height: 100vh;
   overflow-x: hidden;
   font-family: 'Electrolize', sans-serif;
+  color: $light-font-color !important;
+  @include backgroundImage('../assets/images/zombie-theater2.jpg');
 }
 
 .wrapper {
   width: 100vw;
-  height: calc(100vh - 70px);
+  height: 100vh;
   padding-top: 60px;
-}
+  background-image: linear-gradient(141deg, #000 0%, #0368b399 51%, #0009 92%);
+} //#0e82d899
 
 .btn-light {
   border: 1px solid #ced4da;
@@ -32,19 +34,54 @@ input:required {
   box-shadow: none !important;
 }
 
-input::placeholder {
-  color: #c7c7c7 !important;
+.form-control {
+  background-color: #fffc;
+  color: #114b84;
+}
+
+.btn-primary {
+  background-color: #076edd;
+  border-color: #0258b4;
+  &:hover {
+    background-color: #0696ff;
+  }
+}
+.btn-danger {
+  background-color: #81212ae6;
+  border-color: #83232c;
+}
+
+.btn-light {
+  background-color: #f8f9facc;
+  &:hover {
+    background-color: #f6f7f8;
+  }
 }
 
 .nav-link.active {
-  background-color: #f3f3f3 !important;
-  border-color: #dee2e6 #dee2e6 #f3f3f3 !important;
+  background-color: #10407780 !important;
+  border: none !important;
+  color: $font-color !important;
 }
 
 .nav-item.nav-link {
   cursor: pointer;
+
+  &:hover {
+    border-color: transparent;
+  }
+}
+
+.nav-tabs {
+  border-color: transparent;
 }
 
 .tab-pane {
   display: block !important;
+}
+
+@media only screen and (min-width: 1200px) {
+  .container {
+    max-width: 1300px;
+  }
 }

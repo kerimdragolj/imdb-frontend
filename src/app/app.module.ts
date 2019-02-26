@@ -22,6 +22,7 @@ import { GenresService } from './services/genres.service';
 import { ActorsService } from './services/actors.service';
 import { RatingsService } from './services/ratings.service';
 
+
 @NgModule({
   imports: [
     BrowserModule,

@@ -9,11 +9,11 @@
   left: 0;
   z-index: 100;
   padding: 5px;
-  background-color: #efefef;
-  box-shadow: 0px 0px 20px 1px silver;
+  background-color: #1c2d4580;
+  box-shadow: 0px 0px 20px 1px black;
 
   #logo {
-    background-image: url('../../../favicon.ico');
+    @include backgroundImage('../../../favicon.ico');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -33,12 +33,22 @@
     top: -10px;
     display: inline-block;
     font-size: 41px;
+    color: $font-color;
     cursor: pointer;
   }
 
   .pull-right {
     margin-right: 10%;
-    margin-top: 5px;
+    margin-top: 8px;
+    color: $font-color;
+    a {
+      color: $font-color;
+      text-decoration: none !important;
+      margin:0 10px;
+      &:hover {
+        color: $light-font-color;
+      }
+    }
   }
 
   .user {
@@ -75,7 +85,10 @@
 
 @media only screen and (max-width: 600px) {
   .pull-right {
-    margin-right: 6% !important;
+    margin-right: 1% !important;
+    a {
+      margin: 0 !important;
+    }
   }
 
   #logo {

@@ -9,19 +9,17 @@
     font-size: 20px;
     display: block;
 
+    .gray,
     .fa-th:hover,
     .fa-align-justify:hover {
       cursor: pointer;
-      color: #a5a5a5;
-    }
-
-    .gray {
-      color: #a5a5a5;
+      color: $dark-font-color;
     }
   }
 
   .tab-content-wrapper {
     position: relative;
+    padding: 10px 0;
 
     #search-wrapper {
       position: absolute;
@@ -36,15 +34,16 @@
         transition: 0.5s;
         height: 32px;
         width: 100%;
+        color: $light-font-color;
         padding: 3px 25px 3px 10px;
       }
 
       #search::placeholder {
-        color: gray !important;
+        color: #3e8eb3 !important;
       }
 
       #search:focus {
-        background: #f3f3f3;
+        background: #44b6fe33;
         transition: 0.5s;
       }
 
@@ -57,45 +56,54 @@
 
     .tab-content {
       padding: 5px 20px;
-      background-color: #f3f3f3;
-      max-height: calc(100vh - 170px);
+      background-color: transparent;
+      max-height: calc(100vh - 190px);
       overflow-y: auto;
       overflow-x: hidden;
     }
 
     .grid-view {
-      .movie-card-border {
-        padding: 4px;
+      .movie-card-cover {
         margin: 5px 0;
-        @include linearGradient(to right, #eaeaea, #dedddd);
+        width: 100%;
+        height: 300px;
+        border-radius: 6px;
+        @extend %image-shared;
+        transform: scale(1);
+        transition: 0.5s;
+
+        .big-star-wrapper {
+          position: absolute;
+          top: 4px;
+          right: 2px;
+        }
 
         .movie-card {
           width: 100%;
-          height: 400px;
-          background: #f3f3f3;
-          transition: 0.5s;
-
-          .image {
-            @extend %image-shared;
-            height: 80%;
-            margin-bottom: 15px;
-          }
-
-          .big-star-wrapper {
-            position: absolute;
-            top: -4px;
-            right: -4px;
-          }
+          height: 100%;
+          padding: 60% 5px 10px;
+          border-radius: 6px;
+          color: white;
+          position: relative;
+          opacity: 0;
+          scale: 1;
+          transition: 0.7s linear;
 
           .title {
             text-align: center;
-            font-size: 17px;
+            font-weight: bold;
           }
+        }
 
-          &:hover {
+        &:hover {
+          transform: scale(1.015);
+          transition: 0.5s;
+
+          .movie-card {
             cursor: pointer;
-            background-color: #ececec;
-            transition: 0.5s;
+            background-color: #2e92e7b3;
+            opacity: 1;
+            transition: 0.3s linear;
           }
         }
       }
@@ -126,6 +134,7 @@
 
           .title {
             margin: auto 10px;
+            font-weight: bold;
             width: 30%;
           }
 
@@ -140,8 +149,9 @@
 
         &:hover {
           cursor: pointer;
-          background-color: #ececec;
+          background-color: #57bcff69;
           transition: 0.5s;
+          color: white;
         }
       }
     }
@@ -149,35 +159,38 @@
 
     .big-star {
       position: relative;
-      font-size: 35px;
+      font-size: 40px;
 
       .total-rating {
         position: absolute;
         left: 0;
-        font-size: 12px;
-        color: black;
+        font-size: 13px;
+        color: #081524;
         top: 12px;
         width: 100%;
         text-align: center;
+        font-weight: bolder;
       }
     }
 
     .stars {
       text-align: center;
       cursor: pointer;
+      margin-top: 20px;
     }
   }
 }
 
 .load-more {
-  border-top: 2px solid gray;
+  border-top: 2px solid #129aff4d;
   cursor: pointer;
   transition: 0.5s;
   @extend %shared-row;
 
   &:hover {
     transition: 0.5s;
-    background-color: #f2fcff;
+    background-color: #129aff4d;
+    color: #96d0fb;
   }
 }
 

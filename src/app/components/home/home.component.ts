@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { MoviesService } from '../../services/movies.service';
 import { ShowsService } from '../../services/shows.service';
@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   term = '';
   value = 5;
   data = [];
-  limit = 10;
+  limit = 12;
   total = 0;
 
   constructor(
