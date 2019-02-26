@@ -41,10 +41,12 @@
     margin-right: 10%;
     margin-top: 8px;
     color: $font-color;
+
     a {
       color: $font-color;
       text-decoration: none !important;
-      margin:0 10px;
+      margin: 0 10px;
+
       &:hover {
         color: $light-font-color;
       }
@@ -73,12 +75,17 @@
       font-size: 24px;
       margin-left: 10px;
       padding: 2px 2px 2px 5px;
-      border: 2px solid #787878;
+      border: 2px solid $font-color;
       border-radius: 50%;
-      color: #787878;
+      color: $font-color;
       position: relative;
       top: -6px;
       cursor: pointer;
+
+      &:hover {
+        border-color: $light-font-color;
+        color: $light-font-color;
+      }
     }
   }
 }
@@ -86,6 +93,7 @@
 @media only screen and (max-width: 600px) {
   .pull-right {
     margin-right: 1% !important;
+
     a {
       margin: 0 !important;
     }

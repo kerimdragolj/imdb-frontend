@@ -9,11 +9,13 @@
     font-size: 20px;
     display: block;
 
-    .gray,
     .fa-th:hover,
     .fa-align-justify:hover {
       cursor: pointer;
+    }
+    .gray {
       color: $dark-font-color;
+      cursor: pointer;
     }
   }
 
