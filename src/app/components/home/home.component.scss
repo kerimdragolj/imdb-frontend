@@ -13,6 +13,7 @@
     .fa-align-justify:hover {
       cursor: pointer;
     }
+
     .gray {
       color: $dark-font-color;
       cursor: pointer;
@@ -62,6 +63,26 @@
       max-height: calc(100vh - 190px);
       overflow-y: auto;
       overflow-x: hidden;
+      scrollbar-color: #073450 #005380; //Mozilla
+      scrollbar-width: thin; //Mozilla
+    }
+
+    //Safari & Chrome
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #005380;
+      box-shadow: 0px 1px 1px 1px #005380;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #073450;
+
+      &:hover {
+        background: #026fb3;
+      }
     }
 
     .grid-view {
@@ -178,7 +199,10 @@
     .stars {
       text-align: center;
       cursor: pointer;
-      margin-top: 20px;
+      position: absolute;
+      bottom: 30px;
+      width: 96%;
+      z-index: 2;
     }
   }
 }
@@ -208,6 +232,7 @@
   padding: 0 5px !important;
   margin: 0 auto;
 }
+
 
 
 @media only screen and (max-width: 770px) {}

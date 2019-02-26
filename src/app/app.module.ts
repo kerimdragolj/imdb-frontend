@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { ToastrModule } from 'ngx-toastr';
 import { TruncateModule } from '@yellowspot/ng-truncate';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppRoutingModule } from './app.routing';
 
@@ -31,7 +32,8 @@ import { RatingsService } from './services/ratings.service';
     HttpModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
-    TruncateModule
+    TruncateModule,
+    ModalModule.forRoot()
   ],
   declarations: [
     AppComponent,
