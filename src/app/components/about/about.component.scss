@@ -1,2 +1,84 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
+
+.row-wrapper {
+  margin-top: 50px;
+  height: calc(100vh - 125px);
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .poster {
+    height: calc(100vh - 230px);
+    min-height: 500px;
+    position: relative;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+
+    .big-star-wrapper {
+      position: absolute;
+      top: 4px;
+      right: 2px;
+
+      .big-star {
+        float: right;
+        font-size: 60px;
+
+        .total-rating {
+          position: absolute;
+          left: 0;
+          font-size: 21px;
+          color: #081524;
+          top: 18px;
+          width: 100%;
+          text-align: center;
+          font-weight: bolder;
+        }
+      }
+    }
+  }
+
+  .genres {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .stars {
+    cursor: pointer;
+  }
+
+  .overview {
+    margin-top: 10%;
+  }
+
+  .actors {
+    margin-top: 10%;
+  }
+
+}
+
+.col {
+  margin: 0 auto;
+}
+
+.fa-star {
+  color: gold;
+}
+
+
+
+@media only screen and (max-width: 576px) {
+  .poster {
+    max-height: 400px !important;
+    min-height: 300px !important;
+  }
+  .title {
+    font-size: 34px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .poster {
+    height: calc(100vh - 170px);
+  }
+}

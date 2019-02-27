@@ -23,8 +23,18 @@ export const routes: Routes = [
         component: RegistrationComponent
     },
     {
-        path: 'about',
+        path: 'movies/:id',
         component: AboutComponent,
+        data: {
+            tab: 'movies'
+        }
+    },
+    {
+        path: 'shows/:id',
+        component: AboutComponent,
+        data: {
+            tab: 'shows'
+        }
     }
 
 ];

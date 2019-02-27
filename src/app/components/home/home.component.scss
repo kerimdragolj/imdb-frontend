@@ -63,27 +63,8 @@
       max-height: calc(100vh - 190px);
       overflow-y: auto;
       overflow-x: hidden;
-      scrollbar-color: #073450 #005380; //Mozilla
-      scrollbar-width: thin; //Mozilla
     }
 
-    //Safari & Chrome
-    ::-webkit-scrollbar {
-      width: 7px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #005380;
-      box-shadow: 0px 1px 1px 1px #005380;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #073450;
-
-      &:hover {
-        background: #026fb3;
-      }
-    }
 
     .grid-view {
       .movie-card-cover {
@@ -116,6 +97,13 @@
             text-align: center;
             font-weight: bold;
           }
+
+          .stars {
+            text-align: center;
+            position: absolute;
+            width: 96%;
+            z-index: 2;
+          }
         }
 
         &:hover {
@@ -130,6 +118,7 @@
           }
         }
       }
+
     }
 
     .list-view {
@@ -199,10 +188,6 @@
     .stars {
       text-align: center;
       cursor: pointer;
-      position: absolute;
-      bottom: 30px;
-      width: 96%;
-      z-index: 2;
     }
   }
 }

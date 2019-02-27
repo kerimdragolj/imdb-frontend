@@ -31,7 +31,7 @@ export class MoviesService {
 
     return this.http.post(AppSettings.API_ENDPOINT + '/movies', data, { headers: header }).map(res => res.json());
   }
-
+  
   edit(id, data) {
     let header = new Headers();
     header.append('Content-Type', 'application/json');

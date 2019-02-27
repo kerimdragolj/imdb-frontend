@@ -1,3 +1,26 @@
+* {
+  scrollbar-color: #073450 #005380; //Mozilla
+  scrollbar-width: thin; //Mozilla
+
+  //Safari & Chrome
+  ::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #005380;
+    box-shadow: 0px 1px 1px 1px #005380;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #073450;
+
+    &:hover {
+      background: #026fb3;
+    }
+  }
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -16,19 +39,25 @@ body {
 
 .modal-content {
   margin-top: 40%;
+
   #confirm-modal {
     background-color: #1c4b69;
+
     .modal-title {
       margin: 20px;
       text-align: center;
     }
-    .modal-header, .modal-footer {
+
+    .modal-header,
+    .modal-footer {
       border-color: #e9ecef1a;
     }
+
     .close {
       background-color: #fff0;
       color: white;
     }
+
     .btn {
       margin: 0 auto;
       margin-right: auto;
@@ -108,7 +137,7 @@ input:required {
 }
 
 @media only screen and (min-width: 1200px) {
-  .container {
+  .home-container {
     max-width: 1300px;
   }
 }

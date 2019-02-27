@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { UsersService } from '../../services/users.service';
 import { MoviesService } from '../../services/movies.service';
 import { ShowsService } from '../../services/shows.service';
-import { RatingsService } from '../../services/ratings.service';
+import { RatingService } from '../../services/rating.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
@@ -17,9 +17,7 @@ export class HomeComponent implements OnInit {
   currTab = 'movies';
   currLayout = 'grid';
   isSearching = false;
-  oldValue = 5;
   term = '';
-  value = 5;
   data = [];
   limit = 12;
   total = 0;
@@ -30,7 +28,7 @@ export class HomeComponent implements OnInit {
     private usersService: UsersService,
     private moviesService: MoviesService,
     private showsService: ShowsService,
-    private ratingsService: RatingsService,
+    private ratingService: RatingService,
     private toast: ToastrService,
     private router: Router,
     private modalService: BsModalService
@@ -38,7 +36,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.loadData();
-    this.user = JSON.parse(localStorage.getItem('user'));
+    let user = localStorage.getItem('user');
+    if (user) {
+      this.user = JSON.parse(user);
+    }
   }
 
   /**
@@ -54,17 +55,10 @@ export class HomeComponent implements OnInit {
         this.editRating(i, value);
       } else { //user is rating this one for the first time
         this.data[i].userRating = value;
-        if (this.currTab == 'movies') {
-          this.ratingsService.rateMovie(value, this.user.id, this.data[i].id).subscribe(res => {
-            this.usersService.storeData(localStorage.getItem('feathers-jwt'));
-            this.data[i].userRatingObject = res;
-          }, err => { console.log(err) })
-        } else {
-          this.ratingsService.rateShow(value, this.user.id, this.data[i].id).subscribe(res => {
-            this.usersService.storeData(localStorage.getItem('feathers-jwt'));
-            this.data[i].userRatingObject = res;
-          }, err => { console.log(err) })
-        }
+        this.ratingService.create(value, this.user.id, this.data[i].id, this.currTab).subscribe(res => {
+          this.usersService.storeData(localStorage.getItem('feathers-jwt'));
+          this.data[i].userRatingObject = res;
+        }, err => { console.error(err) })
       }
     } else {
       this.openModal(template);
@@ -78,7 +72,7 @@ export class HomeComponent implements OnInit {
    */
   editRating(i: number, value: number) {
     let movieShow = this.data[i];
-    this.ratingsService.edit(movieShow.userRatingObject.id, {
+    this.ratingService.edit(movieShow.userRatingObject.id, {
       movieId: movieShow.userRatingObject.movieId,
       showId: movieShow.userRatingObject.showId,
       rating: value,
@@ -87,7 +81,7 @@ export class HomeComponent implements OnInit {
       this.data[i].userRating = res.rating;
       this.data[i].userRatingObject = res;
       this.usersService.storeData(localStorage.getItem('feathers-jwt'));
-    }, err => { console.log(err) });
+    }, err => { console.error(err) });
   }
 
 
@@ -147,25 +141,25 @@ export class HomeComponent implements OnInit {
         case 'at least 3 stars': {
           this.moviesService.getThreeStarMovies(this.data.length, this.limit).subscribe(res => {
             this.pushNewDataIntoArray(res);
-          }, err => { console.log(err); });
+          }, err => { console.error(err); });
           break;
         }
         case '5 stars': {
           this.moviesService.getFiveStarMovies(this.data.length, this.limit).subscribe(res => {
             this.pushNewDataIntoArray(res);
-          }, err => { console.log(err); });
+          }, err => { console.error(err); });
           break;
         }
         case 'after 2015': {
           this.moviesService.getNewerMovies(this.data.length, this.limit).subscribe(res => {
             this.pushNewDataIntoArray(res);
-          }, err => { console.log(err); });
+          }, err => { console.error(err); });
           break;
         }
         case 'older than 5 years': {
           this.moviesService.getOlderMovies(this.data.length, this.limit).subscribe(res => {
             this.pushNewDataIntoArray(res);
-          }, err => { console.log(err); });
+          }, err => { console.error(err); });
           break;
         }
         default: {
@@ -178,25 +172,25 @@ export class HomeComponent implements OnInit {
         case 'at least 3 stars': {
           this.showsService.getThreeStarShows(this.data.length, this.limit).subscribe(res => {
             this.pushNewDataIntoArray(res);
-          }, err => { console.log(err); });
+          }, err => { console.error(err); });
           break;
         }
         case '5 stars': {
           this.showsService.getFiveStarShows(this.data.length, this.limit).subscribe(res => {
             this.pushNewDataIntoArray(res);
-          }, err => { console.log(err); });
+          }, err => { console.error(err); });
           break;
         }
         case 'after 2015': {
           this.showsService.getNewerShows(this.data.length, this.limit).subscribe(res => {
             this.pushNewDataIntoArray(res);
-          }, err => { console.log(err); });
+          }, err => { console.error(err); });
           break;
         }
         case 'older than 5 years': {
           this.showsService.getOlderShows(this.data.length, this.limit).subscribe(res => {
             this.pushNewDataIntoArray(res);
-          }, err => { console.log(err); });
+          }, err => { console.error(err); });
           break;
         }
         default: {
@@ -274,6 +268,7 @@ export class HomeComponent implements OnInit {
           if (el2.userId == this.user.id) {
             data.userRating = el2.rating;
             data.userRatingObject = el2;
+            return;
           }
         })
       }
@@ -281,9 +276,15 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  
+
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
+  }
+
+
+  openAbout(id: number) {
+    if (this.currTab == 'movies') this.router.navigate(['/movies', id]);
+    else this.router.navigate(['/shows', id]);
   }
 
 }

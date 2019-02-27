@@ -1,3 +1,48 @@
-<div>ABOUT, TO DO</div>
-
-
+<div class="container" *ngIf="data">
+  <div class="row-wrapper">
+    <div class="row">
+      <div class="col col-xl-5 col-lg-5 col-md-7 col-sm-11 col-12">
+        <div class="poster col col-xl-11 col-lg-11 col-md-12 col-sm-12 col-12" [style.background]="'url(https://image.tmdb.org/t/p/w500' + data.poster + ')'">
+          <div class="big-star-wrapper"><i class="fa fa-star big-star"><span class="total-rating">{{data.rating}}</span></i></div>
+        </div>
+      </div>
+      <div class="textual-part col col-xl-7 col-lg-7 col-md-5 col-sm-11 col-12">
+        <h1 class="title"> {{ data.title }}</h1>
+        <div class="row genres">
+          <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <span *ngFor="let genre of data.genres; let i = index">{{genre.name}}<span *ngIf="i < data.genres.length - 1">, </span></span>
+          </div>
+        </div>
+        <div class="stars" (mouseleave)="data.userRating = data.userRatingObject.rating">
+          <span class="fa" [ngClass]="{'fa-star-o': data.userRating < 1, 'fa-star': data.userRating >= 1}" (mouseover)="data.userRating = 1"
+            (click)="submitRating(1)"></span>
+          <span class="fa" [ngClass]="{'fa-star-o': data.userRating < 2, 'fa-star': data.userRating >= 2}" (mouseover)="data.userRating = 2"
+            (click)="submitRating(2)"></span>
+          <span class="fa" [ngClass]="{'fa-star-o': data.userRating < 3, 'fa-star': data.userRating >= 3}" (mouseover)="data.userRating = 3"
+            (click)="submitRating(3)"></span>
+          <span class="fa" [ngClass]="{'fa-star-o': data.userRating < 4, 'fa-star': data.userRating >= 4}" (mouseover)="data.userRating = 4"
+            (click)="submitRating(4)"></span>
+          <span class="fa" [ngClass]="{'fa-star-o': data.userRating < 5, 'fa-star': data.userRating >= 5}" (mouseover)="data.userRating = 5"
+            (click)="submitRating(5)"></span>
+          <span class="fa" [ngClass]="{'fa-star-o': data.userRating < 6, 'fa-star': data.userRating >= 6}" (mouseover)="data.userRating = 6"
+            (click)="submitRating(6)"></span>
+          <span class="fa" [ngClass]="{'fa-star-o': data.userRating < 7, 'fa-star': data.userRating >= 7}" (mouseover)="data.userRating = 7"
+            (click)="submitRating(7)"></span>
+          <span class="fa" [ngClass]="{'fa-star-o': data.userRating < 8, 'fa-star': data.userRating >= 8}" (mouseover)="data.userRating = 8"
+            (click)="submitRating(8)"></span>
+          <span class="fa" [ngClass]="{'fa-star-o': data.userRating < 9, 'fa-star': data.userRating >= 9}" (mouseover)="data.userRating = 9"
+            (click)="submitRating(9)"></span>
+          <span class="fa" [ngClass]="{'fa-star-o': data.userRating < 10, 'fa-star': data.userRating >= 10}"
+            (mouseover)="data.userRating = 10" (click)="submitRating(10)"></span>
+        </div>
+        <div class="overview">
+          {{data.overview}}
+        </div>
+        <div class="actors">
+            <label>Actors: </label> <br>
+            <span *ngFor="let actor of data.actors; let i = index">{{actor.fullname}}<span *ngIf="i < data.actors.length - 1">, </span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

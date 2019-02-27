@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container home-container">
   <div class="row grid-icons">
     <span class="fa fa-th" [ngClass]="{'gray': currLayout == 'grid'}" (click)="currLayout = 'grid'"></span>
     <span class="fa fa-align-justify" [ngClass]="{'gray': currLayout == 'list'}" (click)="currLayout = 'list'"></span>
@@ -19,11 +19,11 @@
       <div class="tab-pane grid-view" *ngIf="currLayout == 'grid'">
         <div class="row">
           <div class="col col-xl-2 col-lg-3 col-md-4 col-sm-6 col-9" *ngFor="let object of data; let i = index">
-            <div class="movie-card-cover" [style.background]="'url(https://image.tmdb.org/t/p/w500' + object.poster + ')'">
+            <div class="movie-card-cover" (click)="openAbout(object.id)" [style.background]="'url(https://image.tmdb.org/t/p/w500' + object.poster + ')'">
               <div class="big-star-wrapper"><i class="fa fa-star big-star"><span class="total-rating">{{object.rating}}</span></i></div>
               <div class="movie-card">
                 <h5 class="title">{{object.title | truncate: 50 }}</h5>
-                <div class="stars" (mouseleave)="object.userRating = object.userRatingObject.rating">
+                <div class="stars" (mouseleave)="object.userRating = object.userRatingObject.rating" (click)="$event.stopPropagation();">
                   <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 1, 'fa-star': object.userRating >= 1}"
                     (mouseover)="object.userRating = 1" (click)="submitRating(i, 1, template)"></span>
                   <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 2, 'fa-star': object.userRating >= 2}"

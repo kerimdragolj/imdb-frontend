@@ -21,7 +21,7 @@ import { MoviesService } from './services/movies.service';
 import { ShowsService } from './services/shows.service';
 import { GenresService } from './services/genres.service';
 import { ActorsService } from './services/actors.service';
-import { RatingsService } from './services/ratings.service';
+import { RatingService } from './services/rating.service';
 
 
 @NgModule({
@@ -49,7 +49,7 @@ import { RatingsService } from './services/ratings.service';
     ShowsService,
     GenresService,
     ActorsService,
-    RatingsService
+    RatingService
   ],
   bootstrap: [AppComponent]
 })
