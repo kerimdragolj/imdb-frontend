@@ -51,14 +51,14 @@
         </div>
       </div>
       <div class="tab-pane list-view" *ngIf="currLayout == 'list'">
-        <div class="row movie" *ngFor="let object of data; let i = index">
+        <div class="row movie" *ngFor="let object of data; let i = index" (click)="openAbout(object.id)">
           <div class="left">
             <div class="image" [style.background]="'url(https://image.tmdb.org/t/p/w500' + object.poster + ')'"></div>
           </div>
           <div class="right">
             <h5 class="title">{{ object.title | truncate: 30 }}</h5>
             <div class="big-star-wrapper"><i class="fa fa-star big-star"><span class="total-rating">{{object.rating}}</span></i></div>
-            <div class="stars" (mouseleave)="object.userRating = object.userRatingObject.rating">
+            <div class="stars" (mouseleave)="object.userRating = object.userRatingObject.rating" (click)="$event.stopPropagation();">
               <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 1, 'fa-star': object.userRating >= 1}"
                 (mouseover)="object.userRating = 1" (click)="submitRating(i, 1, template)"></span>
               <span class="fa" [ngClass]="{'fa-star-o': object.userRating < 2, 'fa-star': object.userRating >= 2}"
